@@ -1,20 +1,6 @@
 ﻿namespace G_ASP_NET_83_OOP05
 {
 
-    static class Calculator
-    {
-        public static string studentCount;     // static
-        public static int Add(int x, int y)
-        {
-            return x + y;
-        }
-        public static bool IsLongerThan(this string text, int length)
-        {
-            return text.Length > length;
-        }
-        static Calculator() { }
-
-    }
     internal class Program
     {
         static void Main(string[] args)
@@ -174,6 +160,45 @@
 
             #endregion
 
+
+            #region Q5  Partial Classes and Partial Methods 
+
+            #region a) What is a Partial Class? 
+            /*
+             A partial class allows one class to be split across multiple files.The compiler combines them into one class.
+             can split many parts of a class, including: fields, properties, methods, constructors, nested types
+
+             */
+
+            #endregion
+
+            #region b) Why would a developer split one class into multiple files? 
+            /*
+            To improve organization and maintainability.
+            It is mainly about code organization, not  OOP.
+            */
+
+
+            #endregion
+
+            #region c) What is a Partial Method? 
+
+            /*
+            A partial method allows one part of a partial class to declare a method and another part to implement it.
+
+            */
+
+            #endregion
+
+            #region d) What happens if a declared partial method has no implementation? 
+            /*
+            removed by the compiler.
+
+            */
+
+            #endregion
+
+            #endregion
 
             #endregion
 
