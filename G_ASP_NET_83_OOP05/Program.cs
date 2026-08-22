@@ -28,7 +28,40 @@
 
             #endregion
 
+            #region Q2 - Shallow Copy vs Deep Copy
 
+            #region a) What is a Shallow Copy?
+            /*
+             A shallow copy creates a new object and copies the values of old object's members as they are.
+             The value types are not affect by any changes but the reference types as they are copying references to the values
+             therefore, the reference to the nested member is copied. So, both objects can refer to the same nested object.
+             
+             */
+            #endregion
+
+            #region b) What is a Deep Copy?
+            /*
+             A deep copy creates a new objec. Both value and reference type members their values are copied.
+             The reference types only the values of nested member not the reference is copied. So the objects are separeted.
+
+             
+             */
+            #endregion
+
+            #region c) What happens to reference-type members in a Shallow Copy?
+            /*
+             Their references are copied.So, both objects can refer to the same nested object.
+             */
+            #endregion
+
+            #region MyRegion
+            /*
+             The reference-type members themselves are copied into new objects.
+             modifying the nested members of the copied object will not modify the original object.
+             */
+            #endregion
+
+            #endregion
 
             #endregion
 
