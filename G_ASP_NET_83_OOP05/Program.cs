@@ -427,6 +427,29 @@ namespace G_ASP_NET_83_OOP05
 
             #endregion
 
+            #region Deep Copy 
+            DeliveryUtilities.PrintSeparator();
+            DeliveryUtilities.PrintSystemTitle("Deep Copy ");
+            DeliveryUtilities.PrintSeparator();
+
+
+            Shipment shipment_deep_copy = standardShipment2.DeepCopy();
+            Console.WriteLine($"Original Shipment Address : {standardShipment2.Destination.GetFullAddress()} ");
+            Console.WriteLine($"Copied Shipment Address : {shipment_deep_copy.Destination.GetFullAddress()}");
+            //Console.WriteLine($"Same Shipment Object : {ReferenceEquals(standardShipment2, shipment_deep_copy)}");
+            Console.WriteLine(" ");
+
+            Console.WriteLine("Changing copied shipment address...");
+            shipment_deep_copy.Destination.city = "Giza";
+            Console.WriteLine($"Original Shipment Address : {standardShipment2.Destination.city} ");
+            Console.WriteLine($"Copied Shipment Address : {shipment_deep_copy.Destination.city}");
+            Console.WriteLine(" ");
+            Console.WriteLine($"Same DeliveryAddress Object : {ReferenceEquals(standardShipment2.Destination, shipment_deep_copy.Destination)}");
+
+
+            #endregion
+
+
 
             #endregion
 
