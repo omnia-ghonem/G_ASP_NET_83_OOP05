@@ -54,11 +54,19 @@
              */
             #endregion
 
-            #region MyRegion
+            #region  d) What happens to reference-type members when a Deep Copy is created?
             /*
              The reference-type members themselves are copied into new objects.
              modifying the nested members of the copied object will not modify the original object.
              */
+            #endregion
+
+            #region e) Give one situation where Deep Copy would be safer than Shallow Copy. 
+            /*
+             Deep copy is safer to modify the copied object without modifying the original.
+             
+             */
+
             #endregion
 
             #endregion
