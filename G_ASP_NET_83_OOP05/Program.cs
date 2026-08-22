@@ -1,5 +1,9 @@
-﻿namespace G_ASP_NET_83_OOP05
+﻿using G_ASP_NET_83_OOP05;
+using System.Text.Json;
+
+namespace G_ASP_NET_83_OOP05
 {
+
 
     internal class Program
     {
@@ -160,7 +164,6 @@
 
             #endregion
 
-
             #region Q5  Partial Classes and Partial Methods 
 
             #region a) What is a Partial Class? 
@@ -202,10 +205,207 @@
 
             #endregion
 
-            #region Part 02 — Practical 
+
+            #region Part 02 - Practical
+            // Smart Delivery Management System
+            // Continue from your Assignment 02 project. Nothing that already works should be removed — you are extending 
+            // behavior, not replacing it.
+            Console.WriteLine();
+            DeliveryUtilities.PrintSeparator();
+            DeliveryUtilities.PrintSystemTitle("Smart Delivery Management System");
+            DeliveryUtilities.PrintSeparator();
+
+            #region Create Delivery Center
+            // =========================================
+            // Create Delivery Center
+            // =========================================
+
+
+            //string centerName = Validations.ReadValidString("Enter Delivery Center Name: ");
+
+            DeliveryCenter center = new DeliveryCenter("cairo");
+            #endregion
+
+            DeliveryUtilities.PrintSeparator();
+            DeliveryUtilities.PrintSystemTitle("Creating Shipments...");
+            DeliveryUtilities.PrintSeparator();
+             
+
+
+            #region Standard Shipment
+            // =========================
+            // Standard Shipment
+            // =========================
+
+            Console.WriteLine("Standard Shipment");
+
+
+            string standardTrackingCode = Validations.ValidName_digitallowed("Tracking Code: ");
+
+            string standardDescription = Validations.ValidName_digitallowed("Description: ");
+
+            string standardStatus = Validations.ValidName_digitallowed("Status: ");
+
+            decimal standardWeight = Validations.ReadValidPositiveDecimal("Weight: ");
+
+            decimal standardFee = Validations.ReadValidPositiveDecimal("Delivery Fee: ");
+
+            string standardStreet = Validations.ValidName_digitallowed("Street: ");
+
+            string standardCity = Validations.ReadValidString("City: ");
+
+            int standardBuildingNumber = Validations.ReadValidPositiveInt("Building Number: ");
+
+            DeliveryAddress standardAddress =
+                new DeliveryAddress(standardCity, standardStreet, standardBuildingNumber);
+
+            DeliveryAddress standardAddress2 =
+            new DeliveryAddress(standardCity, standardStreet, standardBuildingNumber);  
+
+            StandardShipment standardShipment =
+                new StandardShipment(
+                    standardTrackingCode,
+                    standardDescription,
+                    standardWeight,
+                    standardFee,
+                    standardAddress, standardStatus);
+
+
+            StandardShipment standardShipment2 =
+                new StandardShipment(
+                    standardTrackingCode,
+                    standardDescription,
+                    standardWeight,
+                    standardFee,
+                    standardAddress2, standardStatus);
+
+            #endregion
+
+
+            #region ExpressShipment
+
+            // =========================
+            // Express Shipment
+            // =========================
+
+            Console.WriteLine("Express Shipment");
+
+            string expressTrackingCode = Validations.ValidName_digitallowed("Tracking Code: ");
+
+            string expressDescription = Validations.ValidName_digitallowed("Description: ");
+
+            string expressStatus = Validations.ValidName_digitallowed("Status: ");
+
+            decimal expressWeight = Validations.ReadValidPositiveDecimal("Weight: ");
+
+            decimal expressFee = Validations.ReadValidPositiveDecimal("Delivery Fee: ");
+
+            decimal extraFee = Validations.ReadValidPositiveDecimal("Extra Fee: ");
+
+            string expressStreet = Validations.ValidName_digitallowed("Street: ");
+
+            string expressCity = Validations.ReadValidString("City: ");
+
+            int expressBuildingNumber = Validations.ReadValidPositiveInt("Building Number: ");
+
+            DeliveryAddress expressAddress =
+                new DeliveryAddress(expressCity, expressStreet, expressBuildingNumber);
+
+
+            ExpressShipment expressShipment =
+                        new ExpressShipment(
+                            expressTrackingCode,
+                            expressDescription,
+                            expressWeight,
+                            expressFee,
+                            expressAddress,
+                            extraFee, expressStatus);
+
+            #endregion
+
+
+            #region International Shipment
+            // =========================
+            // International Shipment
+            // =========================
+
+            Console.WriteLine("International Shipment");
+
+
+            string internationalTrackingCode = Validations.ValidName_digitallowed("Tracking Code: ");
+
+            string internationalDescription = Validations.ValidName_digitallowed("Description: ");
+
+            string internationalStatus = Validations.ValidName_digitallowed("Status: ");
+
+            decimal internationalWeight = Validations.ReadValidPositiveDecimal("Weight: ");
+
+            decimal internationalFee = Validations.ReadValidPositiveDecimal("Delivery Fee: ");
+
+            decimal customsFee = Validations.ReadValidPositiveDecimal("Customs Fee: ");
+
+            string internationalStreet = Validations.ValidName_digitallowed("Street: ");
+
+            string internationalCity = Validations.ReadValidString("City: ");
+
+            int internationalBuildingNumber = Validations.ReadValidPositiveInt("Building Number: ");
+
+            string destinationCountry = Validations.ReadValidString("Destination Country: ");
+
+            DeliveryAddress internationalAddress =
+                new DeliveryAddress(internationalCity, internationalStreet, internationalBuildingNumber);
+
+
+            InternationalShipment internationalShipment =
+                                new InternationalShipment(
+                                    internationalTrackingCode,
+                                    internationalDescription,
+                                    internationalWeight,
+                                    internationalFee,
+                                    internationalAddress,
+                                    destinationCountry,
+                                    customsFee, internationalStatus);
 
 
             #endregion
+
+
+            Console.WriteLine();
+            #region Add all shipments to the DeliveryCenter
+            center.AddShipment(standardShipment);
+            center.AddShipment(expressShipment);
+            center.AddShipment(internationalShipment);
+            center.AddShipment(standardShipment2);
+
+            #endregion
+
+
+            Console.WriteLine($"Total Shipments Created : {Shipment.GetTotalShipmentsCreated()}");
+
+
+
+
+            #region  Object Copying
+            
+            DeliveryUtilities.PrintSeparator();
+            DeliveryUtilities.PrintSystemTitle("Object Copying");
+            DeliveryUtilities.PrintSeparator();
+
+            // Reference assignment
+            Shipment shipment1 = standardShipment;
+
+            Console.WriteLine($"Reference assignment: {ReferenceEquals(shipment1, standardShipment)}");
+
+            // copy
+            Shipment shipment2 = standardShipment.CopyShipment();
+            Console.WriteLine(
+                $"Copied Shipment: {ReferenceEquals(shipment1, standardShipment)}");
+
+            #endregion
+
+            #endregion
+
+
 
         }
     }
