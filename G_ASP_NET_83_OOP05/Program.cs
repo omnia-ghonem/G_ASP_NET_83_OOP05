@@ -1,5 +1,16 @@
 ﻿namespace G_ASP_NET_83_OOP05
 {
+
+    static class Calculator
+    {
+        public static int studentCount;     // static
+        public static int Add(int x, int y)
+        {
+            return x + y;
+        }
+        static Calculator() { }
+
+    }
     internal class Program
     {
         static void Main(string[] args)
@@ -71,8 +82,53 @@
 
             #endregion
 
+            #region Q3 - Static Members 
+
+            #region a) What is a static field, and how is it different from an instance field? 
+            /*
+             A static field belongs to the class itself, not to individual objects.It shared along whole project
+             can have static field inside a normal class.
+             */
+
             #endregion
 
+            #region b) What is a static method? Can a static method directly access instance members? 
+            /*
+            A static method is a method that belongs to the class rather than to an object.It cannot directly access instance fields because C# doesn't know which  object you mean.
+            can have static method inside a normal class.
+
+             
+             */
+
+            #endregion
+
+            #region c) What is a static constructor?, and when is it executed?
+            /*
+             A static constructor is used to initialize static data or perform one-time static initialization.
+             Initialize the class/type itself before it is used or any static member is accessed.
+             Don't have parameters, as it cannot accept arguments.
+             It executes a maximum of one time per application lifecycle.
+             Cannot invoke/ call a static constructor manually.
+             */
+
+            #endregion
+
+            #region d) What is a static class?
+            /*
+             A static class is a class that contains static members and cannot be instantiated.
+             Use a static class when the class itself doesn't represent an object and you only need its functionality.
+             Cannot contain instance members (fields, methods).
+             Contain only static members.
+             Cannot use public or private access modifiers.
+             Cannot create object of static class.
+             */
+
+            #endregion
+
+
+            #endregion
+
+            #endregion
 
 
         }
