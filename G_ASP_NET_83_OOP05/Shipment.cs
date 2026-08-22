@@ -13,6 +13,7 @@ namespace G_ASP_NET_83_OOP05
         private decimal Weight;
         private decimal DeliveryFee;
 
+        // static field
         static int TotalShipmentsCreated;
 
 
@@ -72,6 +73,8 @@ namespace G_ASP_NET_83_OOP05
 
         public DeliveryAddress Destination { get; set; }
 
+
+        // Static Constructor 
         static Shipment()
         {
             Console.WriteLine("Shipment System Initialized ");
@@ -113,7 +116,7 @@ namespace G_ASP_NET_83_OOP05
 
         }
 
-
+        // Static Method
         public static int GetTotalShipmentsCreated()
         {
             return TotalShipmentsCreated;
