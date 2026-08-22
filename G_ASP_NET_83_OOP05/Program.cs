@@ -449,6 +449,73 @@ namespace G_ASP_NET_83_OOP05
 
             #endregion
 
+            #region Static Method
+            Console.WriteLine($"Total Shipments Created : {Shipment.GetTotalShipmentsCreated()}");
+
+            #endregion
+
+            #region Extension Methods
+            DeliveryUtilities.PrintSeparator();
+            DeliveryUtilities.PrintSystemTitle("Extension Methods");
+            DeliveryUtilities.PrintSeparator();
+
+            Console.WriteLine(standardShipment.GetSummary());
+            Console.WriteLine(expressShipment.GetSummary());
+            Console.WriteLine(internationalShipment.GetSummary());
+            Console.WriteLine(" ");
+            #region  IsDelivered
+            Console.WriteLine($"{standardShipment.trackingCode} Is Delivered : {standardShipment.IsDelivered()}");
+            Console.WriteLine($"{internationalShipment.trackingCode} Is Delivered : {internationalShipment.IsDelivered()}");
+
+            #endregion
+            #endregion
+
+
+            #region Tracking Status 
+
+            DeliveryUtilities.PrintSeparator();
+            DeliveryUtilities.PrintSystemTitle("Tracking Status");
+            DeliveryUtilities.PrintSeparator();
+            expressShipment.UpdateTrackingStatus("Delivered");
+
+
+            #endregion
+
+
+            #region Static Utilities 
+            DeliveryUtilities.PrintSeparator();
+            DeliveryUtilities.PrintSystemTitle("Static Utilities");
+            DeliveryUtilities.PrintSeparator();
+
+            DeliveryUtilities.PrintSeparator_single();
+            DeliveryUtilities.PrintSystemTitle("Delivery Center ");
+            DeliveryUtilities.PrintSeparator_single();
+
+            Console.WriteLine();
+
+            Console.WriteLine($"Total Shipments Created : {Shipment.GetTotalShipmentsCreated()}");
+
+
+            #endregion
+
+
+            #region Partial Method 
+
+            DeliveryUtilities.PrintSeparator();
+
+            Console.WriteLine("Partial Method");
+
+            DeliveryUtilities.PrintSeparator();
+
+            internationalShipment.UpdateTrackingStatus("Delivered");
+
+            #endregion
+
+
+            DeliveryUtilities.PrintSeparator();
+            Console.WriteLine("Assignment Completed");
+            DeliveryUtilities.PrintSeparator();
+
 
 
             #endregion
