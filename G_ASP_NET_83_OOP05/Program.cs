@@ -471,6 +471,51 @@ namespace G_ASP_NET_83_OOP05
             #endregion
 
 
+            #region Tracking Status 
+
+            DeliveryUtilities.PrintSeparator();
+            DeliveryUtilities.PrintSystemTitle("Tracking Status");
+            DeliveryUtilities.PrintSeparator();
+            expressShipment.UpdateTrackingStatus("Delivered");
+
+
+            #endregion
+
+
+            #region Static Utilities 
+            DeliveryUtilities.PrintSeparator();
+            DeliveryUtilities.PrintSystemTitle("Static Utilities");
+            DeliveryUtilities.PrintSeparator();
+
+            DeliveryUtilities.PrintSeparator_single();
+            DeliveryUtilities.PrintSystemTitle("Delivery Center ");
+            DeliveryUtilities.PrintSeparator_single();
+
+            Console.WriteLine();
+
+            Console.WriteLine($"Total Shipments Created : {Shipment.GetTotalShipmentsCreated()}");
+
+
+            #endregion
+
+
+            #region Partial Method 
+
+            DeliveryUtilities.PrintSeparator();
+
+            Console.WriteLine("Partial Method");
+
+            DeliveryUtilities.PrintSeparator();
+
+            internationalShipment.UpdateTrackingStatus("Delivered");
+
+            #endregion
+
+
+            DeliveryUtilities.PrintSeparator();
+            Console.WriteLine("Assignment Completed");
+            DeliveryUtilities.PrintSeparator();
+
 
 
             #endregion
