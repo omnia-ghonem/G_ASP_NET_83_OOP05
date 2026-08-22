@@ -454,6 +454,24 @@ namespace G_ASP_NET_83_OOP05
 
             #endregion
 
+            #region Extension Methods
+            DeliveryUtilities.PrintSeparator();
+            DeliveryUtilities.PrintSystemTitle("Extension Methods");
+            DeliveryUtilities.PrintSeparator();
+
+            Console.WriteLine(standardShipment.GetSummary());
+            Console.WriteLine(expressShipment.GetSummary());
+            Console.WriteLine(internationalShipment.GetSummary());
+            Console.WriteLine(" ");
+            #region  IsDelivered
+            Console.WriteLine($"{standardShipment.trackingCode} Is Delivered : {standardShipment.IsDelivered()}");
+            Console.WriteLine($"{internationalShipment.trackingCode} Is Delivered : {internationalShipment.IsDelivered()}");
+
+            #endregion
+            #endregion
+
+
+
 
             #endregion
 
