@@ -3,10 +3,14 @@
 
     static class Calculator
     {
-        public static int studentCount;     // static
+        public static string studentCount;     // static
         public static int Add(int x, int y)
         {
             return x + y;
+        }
+        public static bool IsLongerThan(this string text, int length)
+        {
+            return text.Length > length;
         }
         static Calculator() { }
 
@@ -128,8 +132,55 @@
 
             #endregion
 
+            #region Q4 - Extension Methods 
+
+            #region a) What is an Extension Method? 
+
+            /*
+            An extension method allows you to add a method to an existing type without modifying its original source code or inheriting from it.
+            To write fluent/readable syntax.
+            Example: cannot modify string because string is part of .NET. Also can't inherit from string to solve this in the normal way.
+            */
+
             #endregion
 
+            #region b) What keyword must be used in the first parameter of an extension method? 
+
+            /*
+            this, tells the compiler which type the method is being attached to.
+
+            */
+
+            #endregion
+
+            #region c) Where must an extension method be declared? 
+
+            /*
+            in a non-generic static class as static method
+
+            */
+
+            #endregion
+
+            #region d) Can an extension method access private members of the class it extends? 
+
+            /*
+            No, it is not a part of the original class/type.
+
+            */
+
+
+            #endregion
+
+            #endregion
+
+
+            #endregion
+
+            #region Part 02 — Practical 
+
+
+            #endregion
 
         }
     }
