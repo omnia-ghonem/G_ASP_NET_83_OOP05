@@ -403,6 +403,31 @@ namespace G_ASP_NET_83_OOP05
 
             #endregion
 
+            #region Shallow Copy
+            DeliveryUtilities.PrintSeparator();
+            DeliveryUtilities.PrintSystemTitle("Shallow Copy ");
+            DeliveryUtilities.PrintSeparator();
+
+
+            Shipment shallowCopy = standardShipment.ShallowCopy();
+            Console.WriteLine($"shallow Copy : {ReferenceEquals(shallowCopy, standardShipment)}");
+
+            Console.WriteLine($"Original Shipment Address : {shallowCopy.Destination.city} ");
+            Console.WriteLine($"Copied Shipment Address : {shallowCopy.Destination.city}");
+            Console.WriteLine(" ");
+
+            Console.WriteLine("Changing copied shipment address...");
+            shallowCopy.Destination.city = "Giza";
+
+            Console.WriteLine($"Original Shipment Address : {standardShipment.Destination.city} ");
+            Console.WriteLine($"Copied Shipment Address : {shallowCopy.Destination.city}");
+            Console.WriteLine(" ");
+
+            Console.WriteLine($"Same DeliveryAddress Object : {ReferenceEquals(standardShipment.Destination, shallowCopy.Destination)}");
+
+            #endregion
+
+
             #endregion
 
 
